@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coral Bleaching Mini Project</title>
+  <style>
+    body {
+      background: #1E3F66;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 { font-size: 2em; margin-bottom: 20px; }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #FF8C00;
+      color: white;
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Coral Bleaching Awareness</h1>
+  <p>Click the button to hear a short message about the Great Barrier Reef.</p>
+  
+  <button id="playBtn">Play Audio</button>
+  
+  <audio id="audio">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+  
+  <p id="subtitle"></p>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const btn = document.getElementById('playBtn');
+    const subtitle = document.getElementById('subtitle');
+
+    btn.addEventListener('click', () => {
+      audio.play();
+      subtitle.innerText = "The Great Barrier Reef is experiencing widespread coral bleaching due to rising ocean temperatures. Protecting our reefs protects life itself!";
+      audio.onended = () => { subtitle.innerText = ""; };
+    });
+  </script>
+</body>
+</html>
